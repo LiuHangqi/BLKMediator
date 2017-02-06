@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BLKMediator_Example' do
+  pod 'BLKMediator', :path => '../'
+
+  target 'BLKMediator_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
