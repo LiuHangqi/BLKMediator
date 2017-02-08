@@ -1,0 +1,16 @@
+PODS:
+  - BLKMediator (0.1.0)
+
+DEPENDENCIES:
+  - BLKMediator (from `../`)
+
+EXTERNAL SOURCES:
+  BLKMediator:
+    :path: ../
+
+SPEC CHECKSUMS:
+  BLKMediator: 36cbce95ba771a1a25cf3e4c1b000f2312bc4140
+
+PODFILE CHECKSUM: 4badeec9a4ba01a9faf8089ee41e87d43d547e1c
+
+COCOAPODS: 1.2.0

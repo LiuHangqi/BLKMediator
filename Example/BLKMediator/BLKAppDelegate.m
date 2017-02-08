@@ -7,12 +7,20 @@
 //
 
 #import "BLKAppDelegate.h"
+#import "BLKMediator.h"
 
 @implementation BLKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    UIViewController *vca = [BLKMediator viewControllerForURL:[NSURL URLWithString:@"ledao://ModulA/vca?tab=1"]];
+    self.window.rootViewController = vca;
+    
     return YES;
 }
 

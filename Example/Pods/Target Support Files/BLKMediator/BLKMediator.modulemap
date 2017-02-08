@@ -1,0 +1,6 @@
+framework module BLKMediator {
+  umbrella header "BLKMediator-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_BLKMediator_Example {
+  umbrella header "Pods-BLKMediator_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
