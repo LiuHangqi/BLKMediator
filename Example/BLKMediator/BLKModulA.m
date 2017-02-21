@@ -34,7 +34,7 @@
 
 - (UIViewController *)connectToOpenURL:(NSURL *)URL paramters:(NSDictionary *)params {
     if ([URL.host isEqualToString:@"ModulA"]) {
-        if (params[@"tag"]==nil) {
+        if (params[@"tad"]==nil) {
             return [UIViewController paramsError:params];
         }
         if ([URL.path isEqualToString:@"/vca"]) {

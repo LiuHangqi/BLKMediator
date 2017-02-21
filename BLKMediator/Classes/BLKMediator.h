@@ -9,13 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "UIViewController+BLKMediator.h"
+#import "BLKMediatorPrt.h"
 
-@protocol BLKConnectorPrt;
 @interface BLKMediator : NSObject
 
-+ (void)registerConnector:(nonnull id<BLKConnectorPrt>)connector;
-
-+ (BOOL)canHandleURL:(nonnull NSURL *)URL;
++ (void)registerConnector:(nonnull id<BLKMediatorPrt>)connector;
 
 + (nullable UIViewController *)viewControllerForURL:(nonnull NSURL *)URL;
 + (nullable UIViewController *)viewControllerForURL:(nonnull NSURL *)URL paramters:(nullable NSDictionary *)params;

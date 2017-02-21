@@ -18,7 +18,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    UIViewController *vca = [BLKMediator viewControllerForURL:[NSURL URLWithString:@"ledao://ModulA/vca?tab=1"]];
+    UIViewController *vca = [BLKMediator viewControllerForURL:[NSURL URLWithString:@"ledao://ModulA/vca?tab=1&control=dev&tag=1"]];
     self.window.rootViewController = vca;
     
     return YES;

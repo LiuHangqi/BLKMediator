@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol BLKConnectorPrt <NSObject>
+@protocol BLKMediatorPrt <NSObject>
 
 @optional
 

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A0FC6951E4867D80069396C /* BLKMediator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A0FC6931E4867D80069396C /* BLKMediator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A0FC6961E4867D80069396C /* BLKMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FC6941E4867D80069396C /* BLKMediator.m */; };
-		5A0FC6981E4869E70069396C /* BLKConnectorPrt.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A0FC6971E4869E70069396C /* BLKConnectorPrt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A0FC6981E4869E70069396C /* BLKMediatorPrt.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A0FC6971E4869E70069396C /* BLKMediatorPrt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A0FC6B61E49791A0069396C /* BLKMediatorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A0FC6B41E49791A0069396C /* BLKMediatorViewController.h */; };
 		5A0FC6B71E49791A0069396C /* BLKMediatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FC6B51E49791A0069396C /* BLKMediatorViewController.m */; };
 		5A0FC6D31E4AC5590069396C /* UIViewController+BLKMediator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A0FC6D11E4AC5590069396C /* UIViewController+BLKMediator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,7 +51,7 @@
 		542B95D30033CEC0D0A7E5165FD8D3BF /* BLKMediator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BLKMediator.modulemap; sourceTree = "<group>"; };
 		5A0FC6931E4867D80069396C /* BLKMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKMediator.h; sourceTree = "<group>"; };
 		5A0FC6941E4867D80069396C /* BLKMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKMediator.m; sourceTree = "<group>"; };
-		5A0FC6971E4869E70069396C /* BLKConnectorPrt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKConnectorPrt.h; sourceTree = "<group>"; };
+		5A0FC6971E4869E70069396C /* BLKMediatorPrt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKMediatorPrt.h; sourceTree = "<group>"; };
 		5A0FC6B41E49791A0069396C /* BLKMediatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKMediatorViewController.h; sourceTree = "<group>"; };
 		5A0FC6B51E49791A0069396C /* BLKMediatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKMediatorViewController.m; sourceTree = "<group>"; };
 		5A0FC6D11E4AC5590069396C /* UIViewController+BLKMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BLKMediator.h"; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			children = (
 				5A0FC6931E4867D80069396C /* BLKMediator.h */,
 				5A0FC6941E4867D80069396C /* BLKMediator.m */,
-				5A0FC6971E4869E70069396C /* BLKConnectorPrt.h */,
+				5A0FC6971E4869E70069396C /* BLKMediatorPrt.h */,
 				5A0FC6B41E49791A0069396C /* BLKMediatorViewController.h */,
 				5A0FC6B51E49791A0069396C /* BLKMediatorViewController.m */,
 				5A0FC6D11E4AC5590069396C /* UIViewController+BLKMediator.h */,
@@ -256,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79481A8B80AF52534A7217852E2A028 /* BLKMediator-umbrella.h in Headers */,
-				5A0FC6981E4869E70069396C /* BLKConnectorPrt.h in Headers */,
+				5A0FC6981E4869E70069396C /* BLKMediatorPrt.h in Headers */,
 				5A0FC6B61E49791A0069396C /* BLKMediatorViewController.h in Headers */,
 				5A0FC6951E4867D80069396C /* BLKMediator.h in Headers */,
 				5A0FC6D31E4AC5590069396C /* UIViewController+BLKMediator.h in Headers */,

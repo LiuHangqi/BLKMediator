@@ -7,21 +7,22 @@
 //
 
 #import "BLKMediator.h"
-#import "BLKConnectorPrt.h"
+#import "BLKMediatorPrt.h"
 #import "UIViewController+BLKMediator.h"
 
-static NSMutableDictionary<NSString *, id<BLKConnectorPrt>> *_connectorDic;
+static NSMutableDictionary<NSString *, id<BLKMediatorPrt>> *_connectorDic = nil;
 
 @implementation BLKMediator
 
-+ (void)registerConnector:(id<BLKConnectorPrt>)connector {
-    if (![connector conformsToProtocol:@protocol(BLKConnectorPrt)]) {
+
++ (void)registerConnector:(id<BLKMediatorPrt>)connector {
+    if (![connector conformsToProtocol:@protocol(BLKMediatorPrt)]) {
         return;
     }
     
     @synchronized (_connectorDic) {
         if (_connectorDic == nil) {
-            _connectorDic = [NSMutableDictionary dictionary];
+            _connectorDic = [[NSMutableDictionary alloc]initWithCapacity:5];
         }
         
         NSString *connectorClsStr = NSStringFromClass([connector class]);
@@ -37,7 +38,7 @@ static NSMutableDictionary<NSString *, id<BLKConnectorPrt>> *_connectorDic;
     }
     
     __block BOOL success = NO;
-    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKConnectorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
+    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj respondsToSelector:@selector(canOpenURL:)]) {
             if ([obj canOpenURL:URL]) {
                 success = YES;
@@ -63,7 +64,7 @@ static NSMutableDictionary<NSString *, id<BLKConnectorPrt>> *_connectorDic;
     
     __block UIViewController *returnObj = nil;
     NSDictionary *userParams = [self userParametersWithURL:URL paramters:params];
-    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKConnectorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
+    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj respondsToSelector:@selector(connectToOpenURL:paramters:)]) {
             id connect = [obj connectToOpenURL:URL paramters:userParams];
             if (connect && [connect isKindOfClass:[UIViewController class]]) {
@@ -75,7 +76,7 @@ static NSMutableDictionary<NSString *, id<BLKConnectorPrt>> *_connectorDic;
     
 #ifdef DEBUG
     if (returnObj == nil) {
-        NSLog(@"未找到对应的ViewController<URL:%@>",URL);
+//        NSLog(@"未找到对应的ViewController<URL:%@>",URL);
         returnObj = [UIViewController notURLSupport:URL];
     }
 #endif
@@ -88,7 +89,7 @@ static NSMutableDictionary<NSString *, id<BLKConnectorPrt>> *_connectorDic;
     }
     
     __block id returnObj = nil;
-    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKConnectorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
+    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj respondsToSelector:@selector(connectToHandleProtocol:)]) {
             returnObj = [obj connectToHandleProtocol:protocol];
             if (returnObj) {

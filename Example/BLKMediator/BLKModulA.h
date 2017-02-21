@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BLKConnectorPrt.h"
+#import "BLKMediatorPrt.h"
 
-@interface BLKModulA : NSObject<BLKConnectorPrt>
+@interface BLKModulA : NSObject<BLKMediatorPrt>
 
 @end
