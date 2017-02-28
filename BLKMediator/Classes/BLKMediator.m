@@ -7,16 +7,16 @@
 //
 
 #import "BLKMediator.h"
-#import "BLKMediatorPrt.h"
+#import "BLKMediatorProtocol.h"
 #import "UIViewController+BLKMediator.h"
 
-static NSMutableDictionary<NSString *, id<BLKMediatorPrt>> *_connectorDic = nil;
+static NSMutableDictionary<NSString *, id<BLKMediatorProtocol>> *_connectorDic = nil;
 
 @implementation BLKMediator
 
 
-+ (void)registerConnector:(id<BLKMediatorPrt>)connector {
-    if (![connector conformsToProtocol:@protocol(BLKMediatorPrt)]) {
++ (void)registerConnector:(id<BLKMediatorProtocol>)connector {
+    if (![connector conformsToProtocol:@protocol(BLKMediatorProtocol)]) {
         return;
     }
     
@@ -38,7 +38,7 @@ static NSMutableDictionary<NSString *, id<BLKMediatorPrt>> *_connectorDic = nil;
     }
     
     __block BOOL success = NO;
-    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
+    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj respondsToSelector:@selector(canOpenURL:)]) {
             if ([obj canOpenURL:URL]) {
                 success = YES;
@@ -64,7 +64,7 @@ static NSMutableDictionary<NSString *, id<BLKMediatorPrt>> *_connectorDic = nil;
     
     __block UIViewController *returnObj = nil;
     NSDictionary *userParams = [self userParametersWithURL:URL paramters:params];
-    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
+    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj respondsToSelector:@selector(connectToOpenURL:paramters:)]) {
             id connect = [obj connectToOpenURL:URL paramters:userParams];
             if (connect && [connect isKindOfClass:[UIViewController class]]) {
@@ -89,7 +89,7 @@ static NSMutableDictionary<NSString *, id<BLKMediatorPrt>> *_connectorDic = nil;
     }
     
     __block id returnObj = nil;
-    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorPrt>  _Nonnull obj, BOOL * _Nonnull stop) {
+    [_connectorDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<BLKMediatorProtocol>  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj respondsToSelector:@selector(connectToHandleProtocol:)]) {
             returnObj = [obj connectToHandleProtocol:protocol];
             if (returnObj) {
